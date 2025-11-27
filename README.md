@@ -23,7 +23,7 @@ El objetivo principal es identificar patrones y construir modelos predictivos qu
 Este proyecto consta de los siguientes archivos:
 
 *   `notebook.ipynb`: El cuaderno de Jupyter que contiene todo el código fuente para el análisis de datos, preprocesamiento, modelado, evaluación de modelos y la predicción del escenario hipotético.
-*   `survey_results_public.csv`: El conjunto de datos original utilizado para este análisis. Este archivo contiene los resultados de una encuesta pública que aborda diversas características de los desarrolladores y su entorno laboral, incluyendo su percepción sobre la Inteligencia Artificial.
+*   `survey_results_public.zip`: El conjunto de datos original utilizado para este análisis. Este archivo contiene los resultados de una encuesta pública que aborda diversas características de los desarrolladores y su entorno laboral, incluyendo su percepción sobre la Inteligencia Artificial.
 
 ## Resultados del Análisis
 
@@ -66,7 +66,3 @@ LightGBM mostró una `Accuracy` de 0.8383. Aunque presentó una `Precision` de 0
 Ninguno de los modelos en su estado actual (Regresión Logística, XGBoost, LightGBM) es robusto para el problema de 'AIThreat' si el objetivo primordial es identificar la clase minoritaria de manera efectiva. Los modelos de *boosting* (XGBoost y LightGBM) están fuertemente sesgados hacia la clase mayoritaria ('No'), como lo demuestra su alto `Accuracy` pero muy bajo `Recall` y `F1-Score` para la clase minoritaria.
 
 Para el propósito de **servir de base para la predicción de un nuevo escenario**, y buscando el modelo con la **mayor capacidad discriminatoria general**, el **LightGBM Classifier** fue seleccionado. A pesar de que sus métricas de `Precision`, `Recall` y `F1-Score` son muy bajas en la detección de la clase positiva, su `ROC AUC` es ligeramente competitivo. Es crucial reconocer que este modelo requiere una **optimización profunda, especialmente en el manejo del desequilibrio de clases**, para mejorar significativamente su capacidad de detectar la clase 'Yes' de 'AIThreat'. Se necesitarán técnicas de rebalanceo (como `SMOTE`) o ajuste de umbrales para que sea verdaderamente útil en un escenario donde el `Recall` de 'AIThreat' sea importante.
-
-## Agradecimientos
-
-Este proyecto fue desarrollado como parte de un ejercicio de análisis de datos y modelado predictivo. Agradecemos a Stack Overflow por la recopilación de datos a través de su encuesta pública, que hizo posible este estudio.
